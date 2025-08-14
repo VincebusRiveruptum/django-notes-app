@@ -1,0 +1,12 @@
+{
+  "name": "notes-app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "pnpm dlx @tailwindcss/cli -i static/css/style.css -o static/css/tailwind.css --minify --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
+  }
+}
