@@ -1,0 +1,23 @@
+{% load django_vite %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Vincebus's quick and dirty note app</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    {% vite_hmr_client %}
+    {% vite_asset 'static/js/main.js' %}
+  </head>
+
+  <body class="h-screen overflow-clip w-full">
+    {% include "navbar.html" %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+  </body>
+</html>
