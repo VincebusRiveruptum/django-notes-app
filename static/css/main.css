@@ -4,6 +4,21 @@ html {
   font-size: 90%;
 }
 
+button, .btn-primary {
+  @apply bg-gray-200 rounded-md px-4 py-1 antialiased font-semibold hover:scale-105 transition-all focus:scale-100;
+}
+
 .btn-selector {
   @apply bg-gray-200 rounded-md px-2 py-1 antialiased font-semibold;
+}
+
+.form-control {
+  @apply flex flex-col gap-1 w-full;
+}
+
+label {
+  @apply font-semibold text-black/80;
+}
+input, textarea{
+  @apply rounded-md border border-black/20 px-4 py-1 text-black/50 antialiased placeholder:text-black/30 w-full transition-all;
 }
