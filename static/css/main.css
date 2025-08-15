@@ -1,1 +1,9 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+html {
+  font-size: 90%;
+}
+
+.btn-selector {
+  @apply bg-gray-200 rounded-md px-2 py-1 antialiased font-semibold;
+}

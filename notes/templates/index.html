@@ -1,6 +1,48 @@
 {% extends "base.html" %} 
 {% block title %}Home Page{% endblock %} 
 {% block content %}
-<h2 class="text-2xl font-bold bg-red-200">Welcome!</h2>
-<p>This is the home page.</p>
+
+<div class="flex flex-col gap-4 w-[80%] my-[2%] mx-auto">
+    <h1 class="text-4xl font-bold">My Notes</h1>
+    
+    <form class="flex flex-row items-center gap-2">
+        <button id="all-filter" class="btn-selector" type="submit">
+            Todos
+        </button>
+        
+        {% if books %}
+            {% for book in books %}
+            <button id="all-filter" class="btn-selector" type="submit">
+                {{ book.name}}
+            </button>
+            {% endfor %}
+        {% endif%}
+    </form>
+
+    <div>
+        <table>
+            {% if notes %}
+            <tbody>
+                {% for note in notes  %}
+                <tr>
+                    <td>
+                        <div class="flex flex-row gap-1">
+                            <h1 class="font-semibold">{{ note.title|default:"Título inválido"}}</h1>
+                            <h2 class="text-black/50">{{ note.description|default:"Sin descripción"}}</h2>
+                        </div>     
+                    </td>    
+                </tr>
+                {% endfor %}
+            </tbody>
+            {% else %}
+            <tbody>
+                <tr>
+                    <td class="text-center font-4xl">No hay notas disponibles</td>
+                </tr>
+            </tbody>
+            {% endif %}
+
+        </table>
+    </div>
+</div>
 {% endblock %}
