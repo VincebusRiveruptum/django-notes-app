@@ -1,9 +1,9 @@
 
 from django.urls import path
 
-from notes import views
+from notes.views import notes
 
 urlpatterns = [
-    path("", views.index, name="views.index"),
-    path("create", views.create, name="views.create")
+    path("", notes.index, name="views.index"),
+    path("create", notes.create, name="views.create")
 ]
