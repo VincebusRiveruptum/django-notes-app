@@ -2,13 +2,15 @@ from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.shortcuts import render
 
-from notes.models import Note
+from notes.models import Book, Note
 
 # Create your views here.
 
 # Notes index
-def index(request):
-    notes = Note.objects.all()
+def index(request, book_id: int):
+    book = Book.objects.get(pk=book_id)
+
+    notes = book.notes.all()
 
     paginator = Paginator(notes, per_page=10)
     page_number = request.GET.get("page")
@@ -18,6 +20,7 @@ def index(request):
         request,
         template_name="notes/index.html",
         context={
+            'book': book,
             'notes': paginated_notes,
         }
     )
@@ -52,7 +55,12 @@ def edit(request, note):
 def create(request):
     print("TODO: Implement create view")
 
+    book_id = request.GET.get("book_id")
+
     return render(
         request=request,
         template_name="notes/create.html",
+        context={
+            'book_id': book_id
+        }
     )

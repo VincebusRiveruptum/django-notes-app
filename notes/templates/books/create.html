@@ -7,7 +7,8 @@
         <h1 class="text-4xl font-bold">New book</h1>
     </div>
     
-    <form class="flex flex-col gap-4">
+    <form action="{% url "views.books.create" %}" method="post" class="flex flex-col gap-4">
+        {% csrf_token %}
         <div class="form-control">
             <label for="title">Título</label>
             <input name="title">

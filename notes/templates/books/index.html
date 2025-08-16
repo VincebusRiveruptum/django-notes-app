@@ -17,29 +17,21 @@
     </form>
 
     <div>
-        <table>
-            {% if books %}
-            <tbody>
-                {% for book in books  %}
-                <tr>
-                    <td>
-                        <div class="flex flex-row gap-1">
-                            <h1 class="font-semibold">{{ book.title|default:"Título inválido"}}</h1>
-                            <h2 class="text-black/50">{{ book.description|default:"Sin descripción"}}</h2>
-                        </div>     
-                    </td>    
-                </tr>
-                {% endfor %}
-            </tbody>
-            {% else %}
-            <tbody>
-                <tr>
-                    <td class="text-center font-4xl">No books available</td>
-                </tr>
-            </tbody>
-            {% endif %}
-
-        </table>
+        {% if books %}
+            {% for book in books  %}
+                <div class="flex flex-row justify-between w-full p-2">
+                    <div class="flex flex-col gap-1">
+                        <h1 class="font-semibold text-xl">{{ book.title|default:"Título inválido"}}</h1>
+                        <h2 class="text-black/50">{{ book.description|default:"Sin descripción"}}</h2>
+                    </div>     
+                    <a href="{% url "views.notes.index" book.id %}" class="btn-primary flex items-center cursor-pointer">></a>
+                </div>    
+            {% endfor %}
+        {% else %}
+            <div>
+                <h1 class="text-center font-4xl">No books available</h1>
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
