@@ -16,7 +16,7 @@ def index(request):
 
     return render(
         request,
-        template_name="index.html",
+        template_name="notes/index.html",
         context={
             'notes': paginated_notes,
         }
@@ -27,7 +27,7 @@ def show(request, note):
 
     return render(
         request,
-        template_name='show.html',
+        template_name='notes/show.html',
         context={
             'note': note
         }
@@ -43,7 +43,7 @@ def edit(request, note):
     note = Note.get(pk=note.id)
     return render(
         request,
-        template_name="edit.html",
+        template_name="notes/edit.html",
         context={
             "note" : note
         }
@@ -54,5 +54,5 @@ def create(request):
 
     return render(
         request=request,
-        template_name="create.html",
+        template_name="notes/create.html",
     )

@@ -4,36 +4,28 @@
 
 <div class="flex flex-col gap-4 w-[80%] my-[2%] mx-auto">
     <div class="flex flex-row items-center justify-between">
-        <h1 class="text-4xl font-bold">My Notes</h1>
-        <a class="btn-primary" href="{% url 'views.create' %}">
-            Crear nota
+        <h1 class="text-4xl font-bold">My Books</h1>
+        <a class="btn-primary" href="{% url 'views.books.create' %}">
+            Create book
         </a>
     </div>
     
     <form class="flex flex-row items-center gap-2">
         <button id="all-filter" class="btn-selector" type="submit">
-            Todos
+            All
         </button>
-        
-        {% if books %}
-            {% for book in books %}
-            <button id="all-filter" class="btn-selector" type="submit">
-                {{ book.name}}
-            </button>
-            {% endfor %}
-        {% endif%}
     </form>
 
     <div>
         <table>
-            {% if notes %}
+            {% if books %}
             <tbody>
-                {% for note in notes  %}
+                {% for book in books  %}
                 <tr>
                     <td>
                         <div class="flex flex-row gap-1">
-                            <h1 class="font-semibold">{{ note.title|default:"Título inválido"}}</h1>
-                            <h2 class="text-black/50">{{ note.description|default:"Sin descripción"}}</h2>
+                            <h1 class="font-semibold">{{ book.title|default:"Título inválido"}}</h1>
+                            <h2 class="text-black/50">{{ book.description|default:"Sin descripción"}}</h2>
                         </div>     
                     </td>    
                 </tr>
@@ -42,7 +34,7 @@
             {% else %}
             <tbody>
                 <tr>
-                    <td class="text-center font-4xl">No hay notas disponibles</td>
+                    <td class="text-center font-4xl">No books available</td>
                 </tr>
             </tbody>
             {% endif %}
