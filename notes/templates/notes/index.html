@@ -25,28 +25,30 @@
     </form>
 
     <div>
-        <table>
+
             {% if notes %}
-            <tbody>
+            
                 {% for note in notes  %}
-                <tr>
-                    <td>
-                        <div class="flex flex-row gap-1">
-                            <h1 class="font-semibold">{{ note.title|default:"Título inválido"}}</h1>
-                            <h2 class="text-black/50">{{ note.description|default:"Sin descripción"}}</h2>
+                
+                    
+                        <div class="flex flex-row justify-between w-full p-2">
+                            <div class="flex flex-col gap-1">
+                                <h1 class="font-semibold text-xl">{{ note.title|default:"Título inválido"}}</h1>
+                                <h2 class="text-black/50">{{ note.description|default:"Sin descripción"}}</h2>
+                            </div>
+                            <a href="{% url "views.notes.show" book.id note.id %}" class="btn-primary flex items-center cursor-pointer">></a>                            
                         </div>     
-                    </td>    
-                </tr>
+                    
+            
                 {% endfor %}
-            </tbody>
+            
             {% else %}
-            <tbody>
-                <tr>
-                    <td class="text-center font-4xl">No notes available yet.</td>
-                </tr>
-            </tbody>
+                <div>
+                    <h1 class="text-center font-4xl">No notes available yet.</h1>
+                </div>
+            
             {% endif %}
-        </table>
+
     </div>
     {{ notes }}
 </div>

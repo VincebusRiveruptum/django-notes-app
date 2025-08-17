@@ -13,7 +13,7 @@ class Book(models.Model):
     #    return self.notes.all()
 
 class Note(models.Model):
-    book_id = models.ForeignKey(Book, related_name=("notes"), on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, related_name=("notes"), on_delete=models.CASCADE)
     title = models.TextField()
     description = models.TextField(null=True)
     body = models.TextField()

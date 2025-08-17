@@ -26,13 +26,15 @@ def index(request, book_id: int):
         }
     )
 
-def show(request, note):
-    note = Note.get(note)
+def show(request, book_id:int, note_id:int):
+    book = Book.objects.get(pk=book_id)
+    note = Note.objects.get(pk=note_id)
 
     return render(
         request,
         template_name='notes/show.html',
         context={
+            'book': book,
             'note': note
         }
     )
@@ -54,8 +56,6 @@ def edit(request, note):
     )
 
 def create(request, book_id: int):
-    print("TODO: Implement create view")
-
     book = Book.objects.get(pk=book_id)
 
     if request.method == "POST":
