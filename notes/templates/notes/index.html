@@ -6,13 +6,13 @@
     <div class="flex flex-row items-center justify-between">
         <h1 class="text-4xl font-bold">My Notes</h1>
         <a class="btn-primary" href="{% url "views.notes.create" book.id %}">
-            Crear nota
+            New note
         </a>
     </div>
     
     <form class="flex flex-row items-center gap-2">
         <button id="all-filter" class="btn-selector" type="submit">
-            Todos
+            All
         </button>
         
         {% if books %}
@@ -42,12 +42,12 @@
             {% else %}
             <tbody>
                 <tr>
-                    <td class="text-center font-4xl">No hay notas disponibles</td>
+                    <td class="text-center font-4xl">No notes available yet.</td>
                 </tr>
             </tbody>
             {% endif %}
-
         </table>
     </div>
+    {{ notes }}
 </div>
 {% endblock %}

@@ -1,7 +1,8 @@
 from django.core.paginator import Paginator
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
+from notes.forms.notes import NoteForm
 from notes.models import Book, Note
 
 # Create your views here.
@@ -52,15 +53,27 @@ def edit(request, note):
         }
     )
 
-def create(request):
+def create(request, book_id: int):
     print("TODO: Implement create view")
 
-    book_id = request.GET.get("book_id")
+    book = Book.objects.get(pk=book_id)
+
+    if request.method == "POST":
+        form = NoteForm(request.POST)
+
+        if form.is_valid():
+            note = form.save(commit=False)
+            note.book = book
+            note.save()
+            return redirect("views.notes.index", book_id=book.id)
+    else:
+        form = NoteForm()
 
     return render(
         request=request,
         template_name="notes/create.html",
         context={
-            'book_id': book_id
+            'form': form,
+            'book': book
         }
     )

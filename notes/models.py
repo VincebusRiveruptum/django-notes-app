@@ -15,6 +15,7 @@ class Book(models.Model):
 class Note(models.Model):
     book_id = models.ForeignKey(Book, related_name=("notes"), on_delete=models.CASCADE)
     title = models.TextField()
+    description = models.TextField(null=True)
     body = models.TextField()
     highlight = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)  
