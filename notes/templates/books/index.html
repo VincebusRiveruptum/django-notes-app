@@ -24,7 +24,9 @@
                         <h1 class="font-semibold text-xl">{{ book.title|default:"Título inválido"}}</h1>
                         <h2 class="text-black/50">{{ book.description|default:"Sin descripción"}}</h2>
                     </div>     
-                    <a href="{% url "views.notes.index" book.id %}" class="btn-primary flex items-center cursor-pointer">></a>
+                    <a href="{% url "views.notes.index" book.id %}" class="btn-primary flex items-center cursor-pointer">
+                        <i data-lucide="chevron-right"></i>
+                    </a>
                 </div>    
             {% endfor %}
         {% else %}
@@ -33,6 +35,6 @@
             </div>
         {% endif %}
     </div>
-    {{ notes }}
+    {% include "pagination_controls.html" with page_obj=books %}
 </div>
 {% endblock %}

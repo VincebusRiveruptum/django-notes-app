@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_vite',
     'django.forms',
-    'notes.apps.NotesConfig'
+    'notes.apps.NotesConfig',
+    'django_lucide_icons',      
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,5 @@ DJANGO_VITE = {
     "dev_mode": DEBUG
   }
 }
+
+LUCIDE_ICONS_DIR = "/static/img/icons"

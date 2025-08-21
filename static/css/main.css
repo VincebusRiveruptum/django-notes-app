@@ -23,3 +23,7 @@ label {
 input,textarea{
   @apply rounded-md border border-black/20 px-4 py-1 text-black/50 antialiased placeholder:text-black/30 w-full transition-all;
 }
+
+.page-item{
+  @apply hover:scale-105 transition-all;
+}

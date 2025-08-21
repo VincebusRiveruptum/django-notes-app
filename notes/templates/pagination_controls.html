@@ -1,0 +1,51 @@
+{% if page_obj.paginator.count %}
+    <div class="flex flex-col items-center w-full">
+        <nav aria-label="Page navigation">
+            <ul class="flex flex-row items-center justify-center gap-2">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="flex flex-row items-center gap-1" href="?page=1"> 
+                            <i data-lucide="chevrons-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="?page={{ page_obj.previous_page_number }}">
+                            <i data-lucide="chevron-left" class="size-6"></i>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active">
+                            <span class="font-semibold">{{ num }}</span>
+                        </li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                            <i data-lucide="chevron-right" class="size-6"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="flex flex-row items-center" href="?page={{ page_obj.paginator.num_pages }}">
+                            <i data-lucide="chevrons-right"></i>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        
+    
+        <div class="text-black/60">
+            Showing {{ page_obj.start_index }} to {{ page_obj.end_index }} 
+            of {{ page_obj.paginator.count }} results
+        </div>
+    </div>
+{% endif %}

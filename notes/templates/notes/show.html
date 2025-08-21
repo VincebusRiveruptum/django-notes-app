@@ -12,12 +12,17 @@
         <div>
             {% csrf_token %}
             <button type="button" class="btn-primary" onclick="deleteNote({{ note.id }} , {{ book.id}})">
-                Delete note
+                <i data-lucide="trash-2"></i>
             </button>
 
              {% csrf_token %}
             <button type="button" class="btn-primary" onclick="highlightNote({{ note.id }} , {{ book.id}}, '{{ note.highlight}}')">
-                {{ note.highlight}}
+                {% if note.highlight == True %}
+                <i data-lucide="star" fill="#FFCC10" strokeWidth="0"></i>
+                {% else %}
+                <i data-lucide="star"></i>
+                {% endif %}
+
             </button>
             
         </div>

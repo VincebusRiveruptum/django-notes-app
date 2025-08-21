@@ -25,31 +25,25 @@
     </form>
 
     <div>
-
-            {% if notes %}
-            
-                {% for note in notes  %}
-                
-                    
-                        <div class="flex flex-row justify-between w-full p-2">
-                            <div class="flex flex-col gap-1">
-                                <h1 class="font-semibold text-xl">{{ note.title|default:"Título inválido"}}</h1>
-                                <h2 class="text-black/50">{{ note.description|default:"Sin descripción"}}</h2>
-                            </div>
-                            <a href="{% url "views.notes.show" book.id note.id %}" class="btn-primary flex items-center cursor-pointer">></a>                            
-                        </div>     
-                    
-            
-                {% endfor %}
-            
-            {% else %}
-                <div>
-                    <h1 class="text-center font-4xl">No notes available yet.</h1>
-                </div>
-            
-            {% endif %}
-
+        {% if notes %}
+            {% for note in notes  %}
+                    <div class="flex flex-row justify-between w-full p-2">
+                        <div class="flex flex-col gap-1">
+                            <h1 class="font-semibold text-xl">{{ note.title|default:"Título inválido"}}</h1>
+                            <h2 class="text-black/50">{{ note.description|default:"Sin descripción"}}</h2>
+                        </div>
+                        <a href="{% url "views.notes.show" book.id note.id %}" class="btn-primary flex items-center cursor-pointer">
+                            <i data-lucide="chevron-right"></i>
+                        </a>                            
+                    </div>     
+            {% endfor %}
+        {% else %}
+            <div>
+                <h1 class="text-center font-4xl">No notes available yet.</h1>
+            </div>
+        
+        {% endif %}
     </div>
-    {{ notes }}
+    {% include "pagination_controls.html" with page_obj=notes %}
 </div>
 {% endblock %}
