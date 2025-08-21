@@ -11,6 +11,8 @@ urlpatterns = [
     # Note stuff
     path("books/<int:book_id>/notes", notes.index, name="views.notes.index"),
     path("books/<int:book_id>/notes/<int:note_id>", notes.show, name="views.notes.show"),
+    path("books/<int:book_id>/notes/<int:note_id>/highlight", notes.highlight, name="views.notes.highlight"),
+    path("books/<int:book_id>/notes/<int:note_id>/delete", notes.delete, name="views.notes.delete"),
     path("books/<int:book_id>/notes/create", notes.create, name="views.notes.create"),
     #path("notes/<int:note_id>", notes.edit, name="views.notes.edit"),
 

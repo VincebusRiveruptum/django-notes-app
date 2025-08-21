@@ -1,9 +1,13 @@
+from email import message
+import json
+from django.core.mail.message import utf8_charset
 from django.core.paginator import Paginator
 from django.http import JsonResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from notes.forms.notes import NoteForm
 from notes.models import Book, Note
+from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 
@@ -39,9 +43,14 @@ def show(request, book_id:int, note_id:int):
         }
     )
 
-def delete(request, note):
-    note = Note.get(note)
+def delete(request, book_id: int, note_id: int):
+    note = get_object_or_404(Note, id=note_id)
     note.delete()
+
+    return JsonResponse({
+        'success': True,
+        'message' : "Note deleted successfully"
+    })
 
 def edit(request, note):
     print("TODO: Implement update")
@@ -77,3 +86,16 @@ def create(request, book_id: int):
             'book': book
         }
     )
+
+@require_http_methods(["POST"])
+def highlight(request, note_id: int, book_id: int):
+    data = json.loads(request.body)
+    note = get_object_or_404(Note,id=note_id)
+
+    note.highlight = data.get('highlighted', True)
+    note.save(update_fields=['highlight'])
+
+    return JsonResponse({
+        'success': True,
+        'message': "Note updated successfully"
+    })

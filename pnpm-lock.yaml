@@ -14,6 +14,9 @@ importers:
       lucide:
         specifier: ^0.539.0
         version: 0.539.0
+      sweetalert2:
+        specifier: ^11.22.4
+        version: 11.22.4
     devDependencies:
       autoprefixer:
         specifier: ^10.4.21
@@ -580,6 +583,9 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
+  sweetalert2@11.22.4:
+    resolution: {integrity: sha512-JwcRODfozxiKmspFp+xctZ2izAmLAKbRPcoLMEW7LdugN/YmNrX1LT7hdBW87qsgupEO1ukBBuB17KzKFKW0tg==}
+
   tailwindcss@4.1.12:
     resolution: {integrity: sha512-DzFtxOi+7NsFf7DBtI3BJsynR+0Yp6etH+nRPTbpWnS2pZBaSksv/JGctNwSWzbFjp0vxSqknaUylseZqMDGrA==}
 
@@ -1059,6 +1065,8 @@ snapshots:
       fsevents: 2.3.3
 
   source-map-js@1.2.1: {}
+
+  sweetalert2@11.22.4: {}
 
   tailwindcss@4.1.12: {}
 
