@@ -27,3 +27,7 @@ input,textarea{
 .page-item{
   @apply hover:scale-105 transition-all;
 }
+
+span {
+  @apply cursor-default;
+}

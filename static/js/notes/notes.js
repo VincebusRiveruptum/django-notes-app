@@ -29,11 +29,11 @@ export const deleteNote = async (noteId, bookId) => {
 };
 
 export const highlightNote = async (noteId, bookId, currentValue) => {
-  console.log(noteId, bookId);
+  console.log(noteId, bookId, currentValue);
 
   let value;
 
-  if (currentValue) {
+  if (currentValue == "True") {
     value = false;
   } else {
     value = true;
@@ -47,7 +47,7 @@ export const highlightNote = async (noteId, bookId, currentValue) => {
         "X-CSRFToken": getCsrfToken(),
       },
       body: JSON.stringify({
-        highlighted: true,
+        highlighted: value,
       }),
     });
   } catch (e) {
