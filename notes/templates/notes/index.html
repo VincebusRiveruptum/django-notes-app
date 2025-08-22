@@ -19,19 +19,31 @@
         </a>
     </div>
     
-    <form class="flex flex-row items-center gap-2">
-        <button id="all-filter" class="btn-selector" type="submit">
-            All
-        </button>
-        
-        {% if books %}
-            {% for book in books %}
-            <button id="all-filter" class="btn-selector" type="submit">
-                {{ book.name}}
-            </button>
-            {% endfor %}
-        {% endif%}
+    <form method="get" class="flex flex-row items-center justify-between gap-2">
+        <div class="flex items-center">
+            <input id="highlight-filter"
+                class="hidden peer"
+                type="checkbox"
+                name="highlight"
+                value="true"
+                {% if request.GET.highlight == "true" %}checked{% endif %}
+                onchange="this.form.submit()" />
+            <label for="highlight-filter"
+                class="btn-primary {% if request.GET.highlight == 'true' %} brightness-80 {% endif %}">
+                <i data-lucide="star" class="size-5"></i>
+                Highlighted
+            </label>    
+        </div>
+
+        <div class="flex items-center">
+            <select name="order_by" onchange="this.form.submit()" class="btn-primary">
+                <option selected disabled value="">Order by</option>
+                <option value="ASC" {% if request.GET.order_by == "ASC" %}selected{% endif %}>Oldest first</option>
+                <option value="DESC" {% if request.GET.order_by == "DESC" %}selected{% endif %}>Newest first</option>
+            </select>
+        </div>
     </form>
+
 
     <div>
         {% if notes %}

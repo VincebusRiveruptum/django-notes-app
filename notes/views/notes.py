@@ -8,14 +8,23 @@ from django.shortcuts import get_object_or_404, redirect, render
 from notes.forms.notes import NoteForm
 from notes.models import Book, Note
 from django.views.decorators.http import require_http_methods
-
+import logging
 # Create your views here.
+logger = logging.getLogger("django")
 
 # Notes index
 def index(request, book_id: int):
     book = Book.objects.get(pk=book_id)
-
     notes = book.notes.all()
+
+    if request.GET.get("highlight") == "true":
+        notes = notes.filter(highlight=True)
+
+    order = request.GET.get("order_by")
+    if order == "ASC":
+        notes = notes.order_by("created_at")
+    elif order == "DESC":
+        notes = notes.order_by("-created_at")
 
     paginator = Paginator(notes, per_page=10)
     page_number = request.GET.get("page")
@@ -23,10 +32,10 @@ def index(request, book_id: int):
 
     return render(
         request,
-        template_name="notes/index.html",
-        context={
-            'book': book,
-            'notes': paginated_notes,
+        "notes/index.html",
+        {
+            "book": book,
+            "notes": paginated_notes,
         }
     )
 

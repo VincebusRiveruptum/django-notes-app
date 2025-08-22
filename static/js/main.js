@@ -16,6 +16,8 @@ import {
   ChevronsLeft,
 } from "lucide";
 import { deleteNote, highlightNote } from "./notes/notes";
+import { CalendarArrowDown } from "lucide";
+import { CalendarArrowUp } from "lucide";
 
 window.Swal = Swal;
 window.deleteNote = deleteNote;
@@ -32,6 +34,8 @@ window.lucide = {
   ChevronLeft,
   ChevronsRight,
   ChevronsLeft,
+  CalendarArrowDown,
+  CalendarArrowUp,
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -47,6 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
       ChevronsRight,
       ChevronLeft,
       ChevronsLeft,
+      CalendarArrowDown,
+      CalendarArrowUp,
     },
   });
 });
