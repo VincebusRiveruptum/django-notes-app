@@ -2382,3 +2382,101 @@ Watching for file changes with StatReloader
 "GET /books HTTP/1.1" 200 4742
 "GET /books/1/notes HTTP/1.1" 200 5171
 "GET /books HTTP/1.1" 200 4742
+"GET /books/1/notes HTTP/1.1" 200 5171
+"GET /books/1/notes/12 HTTP/1.1" 200 2419
+"GET /books/1/notes HTTP/1.1" 200 5171
+"GET /books/1/notes/11 HTTP/1.1" 200 2403
+"GET /books/1/notes HTTP/1.1" 200 5171
+"GET /books HTTP/1.1" 200 4742
+"GET /books/4/notes HTTP/1.1" 200 2440
+"GET /books HTTP/1.1" 200 4742
+"GET /books/1/notes HTTP/1.1" 200 5171
+"GET /books/1/notes?highlight=true HTTP/1.1" 200 2459
+"GET /books/1/notes? HTTP/1.1" 200 5171
+"GET /books/1/notes?highlight=true HTTP/1.1" 200 2459
+"GET /books/1/notes? HTTP/1.1" 200 5171
+"GET /books/1/notes?highlight=true HTTP/1.1" 200 2459
+"GET /books/1/notes? HTTP/1.1" 200 5171
+"GET /books/1/notes?highlight=true HTTP/1.1" 200 2459
+"GET /books/1/notes? HTTP/1.1" 200 5171
+"GET /books/1/notes?highlight=true HTTP/1.1" 200 2459
+"GET /books/1/notes? HTTP/1.1" 200 5171
+"GET /books/1/notes?highlight=true HTTP/1.1" 200 2459
+"GET /books/1/notes? HTTP/1.1" 200 5171
+"GET /books/1/notes/create HTTP/1.1" 200 2344
+"GET /books/1/notes/create HTTP/1.1" 200 2344
+"GET /books/1/notes?order_by=ASC HTTP/1.1" 200 5179
+Not Found: /
+"GET / HTTP/1.1" 404 4519
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /%2Fbooks HTTP/1.1" 200 4760
+Not Found: /books/1/notes
+"GET /books/1/notes?highlight=true HTTP/1.1" 404 2519
+Not Found: /books/1/notes
+"GET /books/1/notes?highlight=true HTTP/1.1" 404 2519
+"GET / HTTP/1.1" 302 0
+"GET /%2Fbooks HTTP/1.1" 200 4760
+"GET /%2Fbooks/1/notes HTTP/1.1" 200 5183
+"GET /%2Fbooks/2/notes HTTP/1.1" 200 2446
+"GET /%2Fbooks/5/notes HTTP/1.1" 200 2443
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: //books
+"GET /%2Fbooks HTTP/1.1" 404 4698
+"GET / HTTP/1.1" 302 0
+"GET /books HTTP/1.1" 200 4742
+"GET /books/1/notes HTTP/1.1" 200 5171
+"GET /books/2/notes HTTP/1.1" 200 2440
+"GET /books/5/notes HTTP/1.1" 200 2437
+"GET / HTTP/1.1" 302 0
+"GET /books HTTP/1.1" 200 4742
+"GET /books/1/notes HTTP/1.1" 200 5171
+"GET /books/2/notes HTTP/1.1" 200 2440
+"GET /books/5/notes HTTP/1.1" 200 2437
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /books HTTP/1.1" 200 4742
+"GET /books HTTP/1.1" 200 4742
+"GET /books/2/notes HTTP/1.1" 200 2440
+Watching for file changes with StatReloader
+"GET /books HTTP/1.1" 200 4742
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/vincebus/vincebus-coding/notes-app-django/env/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vincebus/vincebus-coding/notes-app-django/env/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: <lambda>() takes 0 positional arguments but 1 was given
+"GET / HTTP/1.1" 500 63600
+/home/vincebus/vincebus-coding/notes-app-django/notes_app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /books HTTP/1.1" 200 4742
+"GET / HTTP/1.1" 302 0
+"GET /books HTTP/1.1" 200 4742
+"GET /books HTTP/1.1" 200 4742
+"GET / HTTP/1.1" 302 0
+"GET /books HTTP/1.1" 200 4742
